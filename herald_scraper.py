@@ -51,7 +51,7 @@ with open('NZherald_articles.csv', mode='w', newline='', encoding='utf-8') as fi
         for link in links:
 
             # construct a full url for each story
-            article_url = 'https://nzherald.co.nz' + link['href']
+            article_url = link['href']
             print(f"article url: {article_url}")
 
             # request the story page url
