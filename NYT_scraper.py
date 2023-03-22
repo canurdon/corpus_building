@@ -38,7 +38,8 @@ while is_show_more_present():
 
 # use Selenium driver to create variable containing html of entire archive
 html_source = driver.page_source
-
+print(html_source)
+break
 # request the page with list of URLs you want to crawl
 response = requests.get(html_source)
 
@@ -86,8 +87,8 @@ with open('radioNZ_articles.csv', mode='w', newline='', encoding='utf-8') as fil
         body_words = body_text.split()
 
         # if keyword in the body or heading og the article, extract text and save as csv
-        covid_check = any(word in covid_ids for word in body_words or (word in covid_ids for word in heading_words))
-        keyword_check =  any(word in keywords for word in body_words or (word in keywords for word in heading_words))
+        covid_check = any(word in covid_ids for word in body_words) or any(word in covid_ids for word in heading_words)
+        keyword_check =  any(word in keywords for word in body_words) or (word in keywords for word in heading_words)
         
         print(f"relevant article located: {keyword_check and covid_check}")
 
