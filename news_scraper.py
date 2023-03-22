@@ -89,7 +89,7 @@ with open('radioNZ_articles.csv', mode='w', newline='', encoding='utf-8') as fil
 
         # if there is a next button on the page, update url to next page otherwise termuinate while loop by updating nex_page variable to "True"
         if next_button:
-            current_url = next_url
+            url = next_url
 
         # otherwise end while loop by changing boolean to "True"
         else:
