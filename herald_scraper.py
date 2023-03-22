@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 import time
 import csv
 
+#create a counter to keep track of how many articles have been scraped
+scraped_articles = 0
+
 #create a list of keywords for the study
 covid_words = ["Covid-19", "coronavirus", "pandemic"]
 keywords = ["freedom", "rights", "liberty", "choice", "autonomy", "self-determination", "sovereignty", "independence"]
@@ -84,6 +87,12 @@ with open('NZherald_articles.csv', mode='w', newline='', encoding='utf-8') as fi
                     # write the data to the CSV file
                     writer.writerow([date_text, heading_text, body_text])
 
+                    # update counter variable
+                    scraped_articles += 1
+
+                    # print total number of scraped articles
+                    print(f"number of articles scraped: {scraped_articles}")
+            
             # pause for a moment - it is a good idea to give the server a rest
             time.sleep(2)
 
