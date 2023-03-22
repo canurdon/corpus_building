@@ -34,7 +34,11 @@ with open('NZherald_articles.csv', mode='w', newline='', encoding='utf-8') as fi
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # select the links you want to crawl
+
+        #save article links
         links = soup.select('a.story-card__heading__link')
+        
+        # save next button
         next_button = soup.select_one('a.search-page__pagination-next')
 
         # select the next button at bottom of page and save url for next loop
@@ -60,12 +64,12 @@ with open('NZherald_articles.csv', mode='w', newline='', encoding='utf-8') as fi
             # create a BeautifulSoup object for the story page
             article_soup = BeautifulSoup(article_response.text, 'html.parser')
 
-            if (article_soup.select_one('h1') and article_soup.select_one('time.meta__data__time-stamp') and article_soup.select_one('.article__body full-content article__content')):
+            if (article_soup.select_one('h1') and article_soup.select_one('.author__info time') and article_soup.select_one('.article__body')):
 
                 # select the content you want
                 heading = article_soup.select_one('h1')
-                date = article_soup.select_one('time.meta__data__time-stamp')
-                body = article_soup.select_one('.article__body full-content article__content')
+                date = article_soup.select_one('.author__info time')
+                body = article_soup.select_one('.article__body')
                 
                 # get the text from the body, date, and heading elements
                 body_text = body.get_text()
