@@ -8,7 +8,7 @@ covid_words = ["Covid-19", "coronavirus", "pandemic"]
 keywords = ["freedom", "rights", "liberty", "choice", "autonomy", "self-determination", "sovereignty", "independence"]
 
  # idenetify target url for crawling 
-url = 'https://www.rnz.co.nz/search/results?q=covid-19&commit=Search'
+url = 'https://rnz.co.nz/search/results?page=470&q=covid-19'
 
  # create a CSV file and write the header row
 with open('radioNZ_articles.csv', mode='w', newline='', encoding='utf-8') as file:
