@@ -12,7 +12,7 @@ covid_words = ["Covid-19", "coronavirus", "pandemic"]
 keywords = ["freedom", "rights", "liberty", "choice", "autonomy", "self-determination", "sovereignty", "independence"]
 
  # idenetify target url for crawling 
-url = 'https://rnz.co.nz/search/results?page=1062&q=covid-19'
+url = 'https://www.rnz.co.nz/search/results?page=1426&q=covid-19'
 
 #create  a variable which remains false until the last page of the archive is reached
 last_page = False
